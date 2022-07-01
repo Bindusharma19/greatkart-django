@@ -46,20 +46,29 @@ def add_cart(request, product_id):
             existing_variation = item.variations.all()
             ex_var_list.append(list(existing_variation))
             id.append(item.id)
-        print(item)
+        #print(item)
 
         if product_variation in ex_var_list:
+            print('true') # this print for my checkimg purpose
             index = ex_var_list.index(product_variation)
             item_id = id[index]
+            print("index:",index)
+            print("item_id",item_id)  # these 3 prints for my checkimg purpose
+            print("product_variation",product_variation)
+            print("ex_var_list",ex_var_list)
             item = CartItem.objects.get(product=product, id=item_id)
             item.quantity += 1
             item.save()
             
         else:
+            print(ex_var_list)
             item = CartItem.objects.create(product=product, quantity=1, cart=cart)
             if len(product_variation) > 0:
                 item.variations.clear()
                 item.variations.add(*product_variation)
+                for i in item.variations.all():   #This for loop is for my checking purpose
+                    print(i.variation_category,":",i.variation_value)
+                    #print(i.variations.variation_value)
             item.save()
     else:
         cart_item = CartItem.objects.create(
