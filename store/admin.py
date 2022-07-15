@@ -3,7 +3,7 @@ from .models import Product, Variation
 
 # Register your models here.
 class AdminProduct(admin.ModelAdmin):
-    list_display = ('product_name', 'price', 'category', 'modified_date', 'is_available')
+    list_display = ('product_name', 'price', 'category', 'modified_date', 'is_available', 'stock')
     prepopulated_fields = {'slug':('product_name',)}
 
 class AdminVariation(admin.ModelAdmin):

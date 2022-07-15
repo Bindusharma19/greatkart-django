@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
+    'orders',
+    
 ]
 
 MIDDLEWARE = [
@@ -149,3 +151,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bindukaipa19@gmail.com'
 EMAIL_HOST_PASSWORD = 'mzvgqtecvmlqabrc'
 EMAIL_USE_TLS = True
+
+KEY = 'rzp_test_kSlkVJMapZP4T9'
+SECRET = 'B0yq25Fyo6aDyKXNtzNxITuz'
